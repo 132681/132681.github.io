@@ -43,6 +43,8 @@
 
 		document.getElementById("button3").addEventListener("click", function () {
 //			test1.innerHTML = "<h1>테스트</h1>";
+
+	        try {
 			window.ue.WebBrowser.ChildrenConsentEmail(123).then(
 				function(TheReturnedValue)
 				{
@@ -56,6 +58,14 @@
 					console.log(error);
 				}
 			);
+
+	        } catch (err) {
+	        	alertLayer.setContent("Something went wrong. If you have any problems, please contact us."); 
+	        	alertLayer.open();
+	            //$('#bsAlert').bsAlert({bgType: 'ERROR'}, "Something went wrong. If you have any problems, please contact us. ");
+	        }
+
+
 		});	</script>
 </body>
 </html>
