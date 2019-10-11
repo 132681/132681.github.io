@@ -35,7 +35,7 @@
 
 		document.getElementById("button2").addEventListener("click", function () {
 			try {
-				test1.innerText = !window.ue ? "nothing" : JSON.stringify(Object.keys(window.ue), null, 4);
+				test1.innerText = !window.ue ? "nothing" : JSON.stringify(Object.keys(window.ue.WebBrowser), null, 4);
 			} catch (e) {
 				test1.innerText = e.stack;
 			}
