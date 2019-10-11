@@ -18,10 +18,10 @@
 		var test1 = document.getElementById("test1");
 
 		document.getElementById("button1").addEventListener("click", function () {
-			window.ue.WebBrowser.ChildrenConsentEmail(123).then(
+			window.ue.WebBrowser.TestFunction(123).then(
 				function(TheReturnedValue)
 				{
-					test1.innerHTML = "Clicked";
+					test1.innerHTML = "TestFunction Clicked";
 					console.log(TheReturnedValue);
 				}
 			).catch(
@@ -42,7 +42,20 @@
 		});
 
 		document.getElementById("button3").addEventListener("click", function () {
-			test1.innerHTML = "<h1>테스트</h1>";
+//			test1.innerHTML = "<h1>테스트</h1>";
+			window.ue.WebBrowser.ChildrenConsentEmail(123).then(
+				function(TheReturnedValue)
+				{
+					test1.innerHTML = "ChildrenConsentEmail Clicked";
+					console.log(TheReturnedValue);
+				}
+			).catch(
+				function(error)
+				{
+					test1.innerHTML = error;
+					console.log(error);
+				}
+			);
 		});	</script>
 </body>
 </html>
