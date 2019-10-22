@@ -18,7 +18,7 @@
 		var test1 = document.getElementById("test1");
 
 		document.getElementById("button1").addEventListener("click", function () {
-			window.ue.webbrowser.testfunction(123).then(
+			window.ue.WebBrowser.testfunction(123).then(
 				function(TheReturnedValue)
 				{
 					test1.innerHTML = "TestFunction Clicked";
@@ -35,7 +35,7 @@
 
 		document.getElementById("button2").addEventListener("click", function () {
 			try {
-				test1.innerText = !window.ue ? "nothing" : JSON.stringify(Object.keys(window.ue.webbrowser), null, 4);
+				test1.innerText = !window.ue ? "nothing" : JSON.stringify(Object.keys(window.ue.WebBrowser), null, 4);
 			} catch (e) {
 				test1.innerText = e.stack;
 			}
