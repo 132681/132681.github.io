@@ -22,7 +22,7 @@
 			window.ue.webbrowser.testfunction(123).then(
 				function(TheReturnedValue)
 				{
-					test1.innerHTML = "TestFunction Clicked";
+					test1.innerHTML = "testfunction Clicked";
 					console.log(TheReturnedValue);
 				}
 			).catch(
@@ -47,21 +47,20 @@
 
 			test1.innerHTML = "webbrowser Clicked<br>" + (typeof window.ue.webbrowser.childrenconsentemail);
 
-			try {
-				window.ue.MyObject.FunctionA(123).then(
-					function(TheReturnedValue)
-					{
-						test1.innerHTML += "FunctionA Clicked111";
-					}
-				).catch(
-					function(error)
-					{
-						test1.innerHTML += error;
-					}
-				);
-			} catch (error) {
-				test1.innerHTML += error;
-			}
+			window.ue.webbrowser.childrenconsentemail(123).then(
+				function(TheReturnedValue)
+				{
+					test1.innerHTML = "childrenconsentemail Clicked";
+					console.log(TheReturnedValue);
+				}
+			).catch(
+				function(error)
+				{
+					test1.innerHTML = error;
+					console.log(error);
+				}
+			);
+
 		});
 	</script>
 </body>
