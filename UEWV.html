@@ -47,6 +47,8 @@
 
 //			test1.innerHTML = "webbrowser Clicked<br>" + (typeof window.ue.webbrowser.childrenconsentemail);
 
+		try
+		{
 			window.ue.webbrowser.IsUnreal().then(
 				function(TheReturnedValue)
 				{
@@ -60,6 +62,13 @@
 					console.log(error);
 				}
 			);
+
+		}catch(error){
+			test1.innerHTML = error
+			console.log(error);
+		}
+
+
 
 		});
 	</script>
