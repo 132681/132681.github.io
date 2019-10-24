@@ -22,7 +22,7 @@
 			window.ue.webbrowser.testfunction(123).then(
 				function(TheReturnedValue)
 				{
-					test1.innerHTML = "testfunction Clicked";
+					test1.innerHTML = TheReturnedValue;
 					console.log(TheReturnedValue);
 				}
 			).catch(
@@ -45,7 +45,7 @@
 		document.getElementById("button3").addEventListener("click", function () {
 //			test1.innerHTML = "<h1>테스트</h1>";
 
-			test1.innerHTML = "webbrowser Clicked<br>" + (typeof window.ue.webbrowser.childrenconsentemail);
+//			test1.innerHTML = "webbrowser Clicked<br>" + (typeof window.ue.webbrowser.childrenconsentemail);
 
 			window.ue.webbrowser.IsUnreal().then(
 				function(TheReturnedValue)
