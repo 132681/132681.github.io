@@ -47,10 +47,10 @@
 
 			test1.innerHTML = "webbrowser Clicked<br>" + (typeof window.ue.webbrowser.childrenconsentemail);
 
-			window.ue.webbrowser.childrenconsentemail(123).then(
+			window.ue.webbrowser.IsUnreal().then(
 				function(TheReturnedValue)
 				{
-					test1.innerHTML = "childrenconsentemail Clicked";
+					test1.innerHTML = "IsUnreal Clicked";
 					console.log(TheReturnedValue);
 				}
 			).catch(
