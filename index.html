@@ -18,7 +18,7 @@
 
 		document.getElementById("button1").addEventListener("click", function () {
 
-			window.ue.childrenconsent.childrenconsentemail().then(
+			window.childrenconsent.childrenconsentemail().then(
 				function(TheReturnedValue)
 				{
 					test1.innerHTML =  "<h1>button1 click</h1>";
@@ -35,7 +35,7 @@
 
 		document.getElementById("button2").addEventListener("click", function () {
 			try {
-				test1.innerText = !window.ue ? "nothing" : JSON.stringify(Object.keys(window.ue.childrenconsent), null, 4);
+				test1.innerText = !window.ue ? "nothing" : JSON.stringify(Object.keys(window.childrenconsent), null, 4);
 			} catch (e) {
 				test1.innerText = e.stack;
 			}
