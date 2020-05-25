@@ -15,10 +15,10 @@
 
 	<script>
 		var test1 = document.getElementById("test1");
-		var rtnData = {"rndId": "30872fc04a81b2dc_1590044685", "nextStep":""+nextStep+""};
 
 		document.getElementById("button1").addEventListener("click", function () 
 		{
+			var rtnData = {"rndId": "30872fc04a81b2dc_1590044685", "nextStep":""+nextStep+""};
 			window.ue.childrenconsent.childrenconsentemail(JSON.stringify(rtnData));
 			console.log(JSON.stringify(rtnData);
 		});
