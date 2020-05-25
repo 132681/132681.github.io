@@ -1,83 +1,296 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-	<title>
-		Test page
-	</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	<link href="//static.line.games/common/lineGames/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="//static.line.games/common/lineGames/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="/resources/css/under_16.css?time=20200521111">
+	
+	<title>LINE Games</title>
+	<script src="https://static.line.games/common/resources/js/jquery-1.11.3.min.js"></script>
+	<script src="/resources/js/under_16.js?time=202005211111"></script>
 </head>
+
 <body>
-	<h1>Test 0.25</h1>
-	<button id="button1" style="width: 200px; height: 50px;">버튼1</button>
-	<button id="button2" style="width: 200px; height: 50px;">버튼2</button>
-	<button id="button3" style="width: 200px; height: 50px;">테스트</button>
-	<div id="test1">
-	</div>
+	<div class="wrapper">
+  <!--공통header-->
+  <div class="header">
+    <div class="inner">
+	    <!-- 16세 미만 개인정보 이용 동의 -->
+	    Consent for the use of personal data.
+    </div>
+  </div>
+  <!--//공통header-->
 
-	<script>
-		var test1 = document.getElementById("test1");
+  <!--contents-->
+  <div class="contents">
+    <div class="inner">
+      <div class="title"><span>
+      	<!-- 이용자 나이를 선택해주세요. -->
+      	Please Select Your Age Group(beta)</span></div>
 
-		document.getElementById("button1").addEventListener("click", function () {
-			try {
-			test1.innerText = "button click";
-			//var rntData = {"rndId": "30872fc04a81b2dc_1590044685", "nextStep":""+nextStep+""};
+      <!--con-->
+      <div class="con"> 
+        <ul>
+          <li>
+          	<!-- 16세 미만 사용자자는 개인정보를 처리하기 위해 친권자의 동의가 필요합니다. -->
+          	Before <b>children under 16</b> will be permitted to disclose personal data to use our services, we require consent from a parent or legal guardian.
+          </li>
+          <li>
+          	<!-- 이를 위해 다음 화면에서 <strong>친권자의 이메일 주소 입력</strong>이 필요합니다. -->
+          	Please <strong>insert e-mail address of a parent/legal guardian</strong> in the following screen.
+          </li>
+          <li>
+          	<!-- 아래 이용 약관을 참고하여 주세요.-->
+          	Please refer to our Terms of Service and Privacy Policy for more information.
+          </li>
+        </ul>
+      </div>
+      <!--//con-->
 
-			var temp = "test";
-			window.ue.childrenconsent.childrenconsentemail(temp).then(
-				function(TheReturnedValue)
-				{		
-					test1.innerText = TheReturnedValue;	
-					console.log(TheReturnedValue);
-				}
-			).catch(
-				function(error)
-				{
-					test1.innerText = error;
-					console.log(error);
-				}
-			);
-			} catch (e) {
-			test1.innerText = e.stack;
+      <!--btn_wrap-->
+      <div class="btn_wrap btn2">
+        <div><span><a href="javascript:over16Click();"><!-- 16세 이상-->16 or Above</a></span></div>
+        <div><span><a href="/children/consent/v1/CT/ANDROID/30872fc04a81b2dc_1590044685/step2?langCd=ko"><!-- 16세 미만-->Under 16</a></span></div>
+      </div>
+      <!--//btn_wrap-->
 
-			}
-		});
+    </div>
+  </div>
+  <!--//contents-->
+	
+	<!-- 공통footer-->
+	<!-- 공통footer-->
+  <div class="footer">
+    <div class="inner">
+    	<!-- 
+      <div><span><a href="https://cs.line.games/policy/terms?companyCd=LINE_GAMES&svcCd=CT&langCd=ko" target="_blank">이용약관</a></span></div>
+      <div><span><a href="https://cs.line.games/policy/privacy?companyCd=LINE_GAMES&svcCd=CT&langCd=ko" target="_blank">개인정보처리방침</a></span></div>
+       -->
+       
+      <div><span><a href="javascript:nativeCall('termsOpen');">Terms of Service</a></span></div>
+      <div><span><a href="javascript:nativeCall('privacyOpen');">Privacy Policy</a></span></div>
+    </div>
+  </div>
+  <!--//공통footer-->
+  
+  
+<script src="/resources/js/common.js"></script>
+<script>
 
-		document.getElementById("button2").addEventListener("click", function () {
-			try {
-				test1.innerText = !window.ue ? "nothing" : JSON.stringify(Object.keys(window.ue.childrenconsent), null, 4);
-			} catch (e) {
-				test1.innerText = e.stack;
-			}
-		});
+var alertLayer;
+$(document).ready(function(){
+	alertLayer = new LayerPopup( document.querySelector( '.layer_popup' ), {
+	    className : false
+	    //openButton : document.querySelector('.send_btn')
+	});
+});
+ 
+//알럿팝업 호출 스크립트
+//alertLayer.open(); 
+</script>  
+  </div>
 
-		document.getElementById("button3").addEventListener("click", function () {
-//			test1.innerHTML = "<h1>테스트</h1>";
+<!-- 
+<div class="container-fluid">
+    <div class="row">
+        <div class="panel">
+            <div class="panel-heading lg-color">
+                <span class="pull-left">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
+                <h2 class="panel-title text-center">
+                    Consent for the use of personal data.
+                </h2>
+            </div>
+            <div class="panel-body">
+                <h4 class="text-center">
+                    <strong>Please Select Your Age Group(beta)</strong>
+                </h4>
 
-//			test1.innerHTML = "webbrowser Clicked<br>" + (typeof window.ue.childrenconsent.childrenconsentemail);
+                <ul>
+                    <li>
+                        - Before <b>children under 16</b> will be permitted to disclose personal data to use our services, we require consent from a
+                        parent or legal guardian.
+                    </li>
+                    <li>
+                        - Please insert e-mail address of a parent/legal guardian in the following screen.
+                    </li>
+                    <li>
+                        - Please refer to our Terms of Service and Privacy Policy for more information.
+                    </li>
+                </ul>
 
-		try
-		{
-			window.ue.childrenconsent.isunreal().then(
-				function(TheReturnedValue)
-				{
-					test1.innerHTML = TheReturnedValue;
-					console.log(TheReturnedValue);
-				}
-			).catch(
-				function(error)
-				{
-					test1.innerHTML = error;
-					console.log(error);
-				}
-			);
+                <div class="col-lg-12">
+                    <div class="custom-button-layer" style="margin-top: 25px;">
+                        <a class="btn lg-color" onclick="over16Click();">
+                            16 or Above
+                        </a>
+                        <a class="btn lg-color" href="/children/consent/v1/CT/ANDROID/30872fc04a81b2dc_1590044685/step2?langCd=ko">
+                            Under 16
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="custom-button-layer">
+        <a class="text_under">Terms of Service</a>
+        <a class="text_under">Privacy Policy</a>
+    </div>
+</footer>
+ -->
+<!-- 공통팝업 영역 -->
+<div class='layer_popup dim'>
+  <!-- 긍정팝업일경우 클래스 true // 부정팝업일경우 클래스 false-->
+  <div class='content_wrap false'>
+    <div class='contents'>
+      <p>동의유효 시간이 만료 되었습니다.</p>
+    </div>
+    <div class='buttons'>
+      <button class='close'>×</button>
+    </div>
+  </div>
+</div>
+<!-- //공통팝업 영역 -->
+<script>
+	var keyboardInput = "N";
+	var isUnreal = "N";
 
-		}catch(error){
-			test1.innerHTML = error
-			console.log(error);
-		}
+    $(document).ready(function(){
+         checkUnrealEngine();
+
+    });
+
+	/**
+	메일 주소 input 클릭시 입력 자판이 나오게 되면 Y로 변경이 되고, Y일 경우 모든 javascript 기능이 작동안하도록 수정
+	*/
+	function changeKeyboardInputYn(yesNo){
+		keyboardInput = yesNo;
+		nativeCall(yesNo);
+	}
+
+    /**
+    상섭님 디버깅을 위해서 화면에 직접 출력
+    */
+	function consoleLog(msg) {
+		
+		var html = $("#consoleLog").html();
+		console.log(html);
+		$("#consoleLog").html(html+msg+"<br>");
+		
+	}
+
+    /**
+     언리얼 엔진인지 여부 판별 default : false
+     */
+	function checkUnrealEngine(){
+
+	    /*
+        try {
+          consoleLog("isunreal() call");
+          isUnreal = window.ue.childrenconsent.isunreal();
+          consoleLog("isUnreal call result : "+isUnreal);
+          return;
+        }catch(e){
+             consoleLog(e);
+            //console.log(e);
+        }
+        isUnreal = false;
+        consoleLog("isUnreal call result : "+isUnreal);
+        */
 
 
+        try {
+            window.ue.childrenconsent.isunreal().then(
+                function(TheReturnedValue)
+                {
+                    consoleLog("리턴값 : "+TheReturnedValue);
+                    isUnreal = TheReturnedValue;
+                }
+            ).catch(
+                function(error)
+                {
+                    consoleLog(error);
+                    isUnreal = "N";
+                }
+            );
 
-		});
-	</script>
+        }catch(error){
+            consoleLog(error);
+            isUnreal = "N";
+        }
+    }
+
+    /**
+      각 모바일 디바이스에서 제공하는 엔진별 웹킷 호출
+     */
+    function nativeCall(nextStep) {
+    	
+    	//contentYn은 뭔지 모르겠음.
+    	//상섭님도 사용하지 않음.. 어떤거 인지 모름. 
+        //var rtnData = {"contentYn": "Y", "rndId": "30872fc04a81b2dc_1590044685", "nextStep":\""+btnAction+"\""};
+    	var rtnData = {"rndId": "30872fc04a81b2dc_1590044685", "nextStep":""+nextStep+""};
+    	
+	    	console.log(rtnData);
+			console.log('ANDROID');
+			
+			consoleLog(JSON.stringify(rtnData));
+			consoleLog('os : ANDROID');
+		
+
+        //언리얼 엔진인지 여부 판별
+        checkUnrealEngine();
+
+        
+	        try {
+
+	            if(isUnreal=="Y"){
+                  //언리얼
+                  consoleLog('언리얼 웹킷 호출');
+
+      		window.ue.childrenconsent.childrenconsentemail(rtnData).then(
+                function(TheReturnedValue)
+                {
+                    consoleLog("리턴값 : "+TheReturnedValue);                
+                }
+            ).catch(
+                function(error)
+                {
+                    consoleLog(error);                 
+                }
+            );
+
+
+                  consoleLog('언리얼 웹킷 호출 종료');
+                }else{
+                  //유니티
+                  consoleLog('유니티 웹킷 호출');
+                  window.childrenConsent.childrenConsentEmail(JSON.stringify(rtnData));
+                  consoleLog('유니티 웹킷 호출 종료');
+                }
+
+	        } catch (err) {
+                consoleLog('웹킷 에러 : '+err);
+                console.log(err);
+	        	alertLayer.setContent("문제가 발생했습니다. 지속적인 문제가 발생한다면 고객센터로 문의 부탁드립니다."); 
+	        	alertLayer.open();
+	            //$('#bsAlert').bsAlert({bgType: 'ERROR'}, "문제가 발생했습니다. 지속적인 문제가 발생한다면 고객센터로 문의 부탁드립니다. ");
+	        }
+        
+    }
+</script>
+
+
+<script>
+    function over16Click() {
+        //modalControl('SUCCESS', '클라 메소드 호출하고 종료');
+        nativeCall('gdprClose'); //클라호출
+    }
+</script>
+
 </body>
 </html>
