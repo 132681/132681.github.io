@@ -19,7 +19,28 @@
 		document.getElementById("button1").addEventListener("click", function ()
 		{
 			var testTest = "1";
-			window.ue.childrenconsent.childrenconsentemail(testTest);
+
+			try
+			{
+				window.ue.childrenconsent.childrenconsentemail(testTest)).then(
+				function(TheReturnedValue)
+				{
+					test1.innerHTML = "ButtonClick1"
+					console.log(TheReturnedValue);
+				}
+				).catch(
+				function(error)
+				{
+					test1.innerHTML = error;
+					console.log(error);
+				}
+			);
+
+			}catch(error){
+				test1.innerHTML = error
+				console.log(error);
+			}
+
 		});
 
 		document.getElementById("button2").addEventListener("click", function () {
