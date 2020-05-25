@@ -16,31 +16,21 @@
 	<script>
 		var test1 = document.getElementById("test1");
 
-		document.getElementById("button1").addEventListener("click", function ()
-		{
-			var testTest = "1";
+		document.getElementById("button1").addEventListener("click", function () {
 
-			try
-			{
-				window.ue.childrenconsent.childrenconsentemail(testTest)).then(
+			window.ue.childrenconsent.childrenconsentemail().then(
 				function(TheReturnedValue)
 				{
-					test1.innerHTML = "ButtonClick1"
+					test1.innerHTML =  "<h1>button1 click</h1>";
 					console.log(TheReturnedValue);
 				}
-				).catch(
+			).catch(
 				function(error)
 				{
 					test1.innerHTML = error;
 					console.log(error);
 				}
 			);
-
-			}catch(error){
-				test1.innerHTML = error
-				console.log(error);
-			}
-
 		});
 
 		document.getElementById("button2").addEventListener("click", function () {
