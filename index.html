@@ -15,22 +15,12 @@
 
 	<script>
 		var test1 = document.getElementById("test1");
+		var rtnData = {"rndId": "30872fc04a81b2dc_1590044685", "nextStep":""+nextStep+""};
 
-		document.getElementById("button1").addEventListener("click", function () {
-
-			window.ue.childrenconsent.childrenconsentemail("ZZ").then(
-				function(TheReturnedValue)
-				{
-					test1.innerHTML =  "<h1>button1 click</h1>";
-					console.log(TheReturnedValue);
-				}
-			).catch(
-				function(error)
-				{
-					test1.innerHTML = error;
-					console.log(error);
-				}
-			);
+		document.getElementById("button1").addEventListener("click", function () 
+		{
+			window.ue.childrenconsent.childrenconsentemail(JSON.stringify(rtnData));
+			console.log(JSON.stringify(rtnData);
 		});
 
 		document.getElementById("button2").addEventListener("click", function () {
