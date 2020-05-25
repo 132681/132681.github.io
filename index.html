@@ -18,7 +18,7 @@
 
 		document.getElementById("button1").addEventListener("click", function () {
 
-			window.ue4.childrenconsent.childrenconsentemail().then(
+			window.ue.childrenconsent.childrenconsentemail().then(
 				function(TheReturnedValue)
 				{
 					test1.innerHTML =  "<h1>button1 click</h1>";
@@ -35,7 +35,7 @@
 
 		document.getElementById("button2").addEventListener("click", function () {
 			try {
-				test1.innerText = !window.ue4 ? "nothing" : JSON.stringify(Object.keys(window.ue4.childrenconsent), null, 4);
+				test1.innerText = !window.ue ? "nothing" : JSON.stringify(Object.keys(window.ue.childrenconsent), null, 4);
 			} catch (e) {
 				test1.innerText = e.stack;
 			}
@@ -44,11 +44,11 @@
 		document.getElementById("button3").addEventListener("click", function () {
 //			test1.innerHTML = "<h1>테스트</h1>";
 
-//			test1.innerHTML = "webbrowser Clicked<br>" + (typeof window.ue4.childrenconsent.childrenconsentemail);
+//			test1.innerHTML = "webbrowser Clicked<br>" + (typeof window.ue.childrenconsent.childrenconsentemail);
 
 		try
 		{
-			window.ue4.childrenconsent.isunreal().then(
+			window.ue.childrenconsent.isunreal().then(
 				function(TheReturnedValue)
 				{
 					test1.innerHTML = TheReturnedValue;
