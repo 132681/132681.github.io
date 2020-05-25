@@ -16,10 +16,12 @@
 	<script>
 		var test1 = document.getElementById("test1");
 
-		document.getElementById("button1").addEventListener("click", function () 
-		{			
-			window.ue.childrenconsent.childrenconsentemail("ttttt");
-			//console.log(JSON.stringify(rtnData);
+		document.getElementById("button1").addEventListener("click", function () {
+			try {
+				test1.innerText = !window.ue ? "nothing" : JSON.stringify(Object.keys(window.ue.childrenconsent), null, 4);
+			} catch (e) {
+				test1.innerText = e.stack;
+			}
 		});
 
 		document.getElementById("button2").addEventListener("click", function () {
