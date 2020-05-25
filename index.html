@@ -17,10 +17,12 @@
 		var test1 = document.getElementById("test1");
 
 		document.getElementById("button1").addEventListener("click", function () {
-			
+			try {
 			test1.innerText = "button click";
-			var rntData = {"rndId": "30872fc04a81b2dc_1590044685", "nextStep":""+nextStep+""};
-			window.ue.childrenconsent.childrenconsentemail(JSON.stringify(rntData)).then(
+			//var rntData = {"rndId": "30872fc04a81b2dc_1590044685", "nextStep":""+nextStep+""};
+
+			var temp = "test";
+			window.ue.childrenconsent.childrenconsentemail(temp).then(
 				function(TheReturnedValue)
 				{		
 					test1.innerText = TheReturnedValue;	
@@ -33,6 +35,10 @@
 					console.log(error);
 				}
 			);
+			} catch (e) {
+			test1.innerText = e.stack;
+
+			}
 		});
 
 		document.getElementById("button2").addEventListener("click", function () {
