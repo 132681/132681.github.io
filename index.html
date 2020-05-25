@@ -22,13 +22,14 @@
 			var rntData = {"rndId": "30872fc04a81b2dc_1590044685", "nextStep":""+nextStep+""};
 			window.ue.childrenconsent.childrenconsentemail(JSON.stringify(rntData)).then(
 				function(TheReturnedValue)
-				{					
+				{		
+					test1.innerText = TheReturnedValue;	
 					console.log(TheReturnedValue);
 				}
 			).catch(
 				function(error)
 				{
-					test1.innerText =error;
+					test1.innerText = error;
 					console.log(error);
 				}
 			);
