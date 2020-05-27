@@ -46,7 +46,7 @@ document.getElementById("button2").addEventListener("click", function()
 	{
 		window.ue.childrenconsent.isunreal().then(function(TheReturnedValue)
 		{
-			var jsObject = JSON.parse(TheReturnedValue);
+			var jsObject = JSON.parse(JSON.stringify(TheReturnedValue));
 			var isUnreal = jsObject['ReturnValue'];
 
 			test1.innerText = isUnreal;
