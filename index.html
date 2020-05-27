@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,76 +10,61 @@
 	<h1>Test 0.25</h1>
 	<button id="button1" style="width: 200px; height: 50px;">버튼1</button>
 	<button id="button2" style="width: 200px; height: 50px;">버튼2</button>
-	<button id="button3" style="width: 200px; height: 50px;">테스트</button>
 	<div id="test1">
 	</div>
 
 	<script>
-		var test1 = document.getElementById("test1");
+var test1 = document.getElementById("test1");
 
-		document.getElementById("button1").addEventListener("click", function () {
-			try {
-			test1.innerText = "button click";
-			//var rntData = {"rndId": "30872fc04a81b2dc_1590044685", "nextStep":""+nextStep+""};
+document.getElementById("button1").addEventListener("click", function()
+{
+	try
+	{
+		test1.innerText = "button click";
+		var temp = '{"rndId":"30872fc04a81b2dc_1590044685","nextStep":"gdprClose"}';
 
-			var temp = '{"rndId":"30872fc04a81b2dc_1590044685","nextStep":"gdprClose"}';
-			window.ue.childrenconsent.childrenconsentemail(temp).then(
-				function(TheReturnedValue)
-				{		
-					test1.innerText = TheReturnedValue;	
-					console.log(TheReturnedValue);
-				}
-			).catch(
-				function(error)
-				{
-					test1.innerText = error;
-					console.log(error);
-				}
-			);
-			} catch (e) {
-			test1.innerText = e.stack;
-
-			}
-		});
-
-		document.getElementById("button2").addEventListener("click", function () {
-			try {
-				test1.innerText = !window.ue ? "nothing" : JSON.stringify(Object.keys(window.ue.childrenconsent), null, 4);
-			} catch (e) {
-				test1.innerText = e.stack;
-			}
-		});
-
-		document.getElementById("button3").addEventListener("click", function () {
-//			test1.innerHTML = "<h1>테스트</h1>";
-
-//			test1.innerHTML = "webbrowser Clicked<br>" + (typeof window.ue.childrenconsent.childrenconsentemail);
-
-		try
+		window.ue.childrenconsent.childrenconsentemail(temp).then(function(TheReturnedValue)
 		{
-			window.ue.childrenconsent.isunreal().then(
-				function(TheReturnedValue)
-				{			
-					var isUnreal = TheReturnedValue;
-					test1.innerText = JSON.stringify(isUnreal);
-					console.log(TheReturnedValue);
-				}
-			).catch(
-				function(error)
-				{
-					test1.innerHTML = error;
-					console.log(error);
-				}
-			);
-
-		}catch(error){
-			test1.innerHTML = error
+			test1.innerText = TheReturnedValue;
+			console.log(TheReturnedValue);
+		}).catch (function(error)
+		{
+			test1.innerText = error;
 			console.log(error);
 		}
+		);
+	}
+	catch (e) {
+		test1.innerText = e.stack;
 
+	}
+});
 
+document.getElementById("button2").addEventListener("click", function()
+{
+	try
+	{
+		window.ue.childrenconsent.isunreal().then(function(TheReturnedValue)
+		{
+			var jsObject = JSON.parse(TheReturnedValue);
+			var isUnreal = jsObject['ReturnValue'];
 
-		});
-	</script>
+			test1.innerText = isUnreal;
+			console.log(TheReturnedValue);
+		}).catch (function(error)
+		{
+			test1.innerHTML = error;
+			console.log(error);
+		}
+		);
+
+	}
+	catch (error)
+	{
+		test1.innerHTML = error
+			console.log(error);
+	}
+});
+</script>
 </body>
 </html>
