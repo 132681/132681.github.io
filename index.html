@@ -58,8 +58,10 @@
 		{
 			window.ue.childrenconsent.isunreal().then(
 				function(TheReturnedValue)
-				{
-					test1.innerHTML = TheReturnedValue;
+				{			
+					var isUnreal = window.ue.childrenconsent.isunreal();
+
+					test1.innerText = isUnreal ;
 					console.log(TheReturnedValue);
 				}
 			).catch(
