@@ -60,8 +60,7 @@
 				function(TheReturnedValue)
 				{			
 					var isUnreal = TheReturnedValue;
-
-					test1.innerText = isUnreal ;
+					test1.innerText = JSON.stringify(isUnreal);
 					console.log(TheReturnedValue);
 				}
 			).catch(
