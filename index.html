@@ -44,6 +44,7 @@ document.getElementById("button2").addEventListener("click", function()
 {
 	try
 	{
+		var i = window.ue.childrenconsent.isunreal();
 		window.ue.childrenconsent.isunreal().then(function(TheReturnedValue)
 		{
 			var isUnreal = TheReturnedValue;
@@ -63,7 +64,7 @@ document.getElementById("button2").addEventListener("click", function()
 			}
 			*/
 	
-			test1.innerText = isUnreal + "  1";
+			test1.innerText = isUnreal + " -- "+  i;
 			console.log(TheReturnedValue);
 		}).catch (function(error)
 		{
