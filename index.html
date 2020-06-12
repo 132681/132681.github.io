@@ -46,8 +46,19 @@ document.getElementById("button2").addEventListener("click", function()
 	{
 		window.ue.childrenconsent.isunreal().then(function(TheReturnedValue)
 		{
-			var jsObject = JSON.parse(JSON.stringify(TheReturnedValue));
-			var isUnreal = jsObject['ReturnValue'];
+			var isUnreal = "N";
+			
+			// 언리얼 에디터의 경우
+			if(TheReturnedValue == "Y")
+			{
+				isUnreal = TheReturnedValue;
+			}
+			// 안드로이드 , iOS의 경우
+			else
+			{
+				var jsObject = JSON.parse(JSON.stringify(TheReturnedValue));
+				isUnreal = jsObject['ReturnValue'];
+			}
 
 			test1.innerText = isUnreal;
 			console.log(TheReturnedValue);
