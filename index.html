@@ -42,43 +42,37 @@ document.getElementById("button1").addEventListener("click", function()
 
 document.getElementById("button2").addEventListener("click", function()
 {
-	try
+
+	window.ue.childrenconsent.isunreal().then(function(TheReturnedValue)
 	{
-		var i = window.ue.childrenconsent.isunreal();
-		window.ue.childrenconsent.isunreal().then(function(TheReturnedValue)
+		var isUnreal = "N"
+		var type = typeof(TheReturnedValue);
+
+		if (type =="object")
 		{
-			var isUnreal = TheReturnedValue;
-			
-			/*
-			if (isUnreal != "Y")
+			try
 			{
-				try
-				{
-					var jsObject = JSON.parse(JSON.stringify(TheReturnedValue));
-					isUnreal = jsObject['ReturnValue'];
-				}
-				catch (e)
-				{
-
-				}
+				var jsObject = JSON.parse(JSON.stringify(TheReturnedValue));
+				isUnreal = jsObject['ReturnValue'];
 			}
-			*/
-	
-			test1.innerText = isUnreal + " -- "+  i;
-			console.log(TheReturnedValue);
-		}).catch (function(error)
-		{
-			test1.innerHTML = error;
-			console.log(error);
+			}).catch (function(error)
+			{
+				test1.innerText = error;
+			}
 		}
-		);
+		else
+			isUnreal = TheReturnedValue;
+
+		test1.innerText = isUnreal ;
+		console.log(TheReturnedValue);
+	}).catch (function(error)
+	{
+		test1.innerHTML = error;
+		console.log(error);
+	});
 
 	}
-	catch (error)
-	{
-		test1.innerHTML = error
-			console.log(error);
-	}
+	
 });
 </script>
 </body>
