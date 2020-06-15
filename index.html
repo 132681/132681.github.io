@@ -55,9 +55,9 @@ document.getElementById("button2").addEventListener("click", function()
 				var jsObject = JSON.parse(JSON.stringify(TheReturnedValue));
 				isUnreal = jsObject['ReturnValue'];
 			}
-			}).catch (function(error)
+			}).catch (e)
 			{
-				test1.innerText = error;
+				test1.innerText = e.stack;
 			}
 		}
 		else
@@ -67,7 +67,7 @@ document.getElementById("button2").addEventListener("click", function()
 		console.log(TheReturnedValue);
 	}).catch (function(error)
 	{
-		test1.innerHTML = error;
+		test1.innerText = e.stack;
 		console.log(error);
 	});
 
