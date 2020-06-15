@@ -14,10 +14,13 @@
 	</div>
 
 	<script>
+
 var test1 = document.getElementById("test1");
 
 document.getElementById("button1").addEventListener("click", function()
 {
+	test1.innerText = "button click 1";
+
 	try
 	{
 		test1.innerText = "button click";
@@ -42,38 +45,32 @@ document.getElementById("button1").addEventListener("click", function()
 
 document.getElementById("button2").addEventListener("click", function()
 {
-
+	test1.innerText = "button click 2";
 	window.ue.childrenconsent.isunreal().then(function(TheReturnedValue)
 	{
 		var isUnreal = "N"
-		var type = typeof(TheReturnedValue);
 
-		if (type =="object")
+		if ( typeof(TheReturnedValue) === 'object')
 		{
 			try
 			{
 				var jsObject = JSON.parse(JSON.stringify(TheReturnedValue));
 				isUnreal = jsObject['ReturnValue'];
 			}
-			}).catch (e)
+			catch (e)
 			{
 				test1.innerText = e.stack;
 			}
 		}
 		else
 			isUnreal = TheReturnedValue;
-
+	
 		test1.innerText = isUnreal ;
 		console.log(TheReturnedValue);
-	}).catch (function(error)
-	{
-		test1.innerText = e.stack;
-		console.log(error);
-	});
 
-	}
-	
+	});
 });
+
 </script>
 </body>
 </html>
